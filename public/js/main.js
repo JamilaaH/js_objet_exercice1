@@ -52,17 +52,16 @@ perso.sePresenter()
 console.log("_________");
 // exo6
 
-// let persoSix = {
-//     nom : "Julien",
-//     demandeAge() {
-//         let age = prompt('quel age as tu');
-//         persoSix.age = age;
-//         console.log(`${this.nom} a ${this.age} ans`);
+let persoSix = {
+    nom : "Julien",
+    demandeAge() {
+        this.age = prompt('quel age as tu');
+        console.log(`${this.nom} a ${this.age} ans`);
 
-//     },
-// }
-// persoSix.demandeAge();
-// console.log(persoSix);
+    },
+}
+persoSix.demandeAge();
+console.log(persoSix);
 
 console.log("_________");
 // exo7
@@ -80,14 +79,14 @@ let joueurTrois = {
 }
 
 let voleur = {
-    vole () {
-        voleur.nom = joueurUn.nom;
-        voleur.age = joueurTrois.age;
-        console.log(`le voleur s'appelle ${this.nom} et a ${this.age} ans`); 
+    usurpation(perso) {
+        this.nom = perso.nom;
+        this.age = perso.age;
     }
 }
 
-voleur.vole();
+voleur.usurpation(joueurUn);
+console.log(voleur);
 
 console.log("_________");
 // exo8
@@ -103,7 +102,6 @@ let chefUn = {
         while (chefDeux.panier.length !== 0) {
             this.panier.push(chefDeux.panier[0]);
             chefDeux.panier.splice(0,1);
-
         }
     }
 }
